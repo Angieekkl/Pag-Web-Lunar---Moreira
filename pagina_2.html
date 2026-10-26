@@ -19,8 +19,180 @@
     </nav>
 
     <hr> <main>
-        <h1>Página Nº2: La realización de la app para manejar la Luna fisica</h1>
-        <p>Esta es la sección en donde se detalla el proceso de realizacion de la app...</p>
+            <div class="portada">
+                    <img src="Assets/ai-bee-horiz.png" alt="portada" class="portada-2">
+                    </div>
+        <main>
+            <h1>Desarrollo de la aplicación móvil</h1>
+
+            <section>
+                <h2>1. ¿En qué consiste la aplicación?</h2>
+                <p>
+                    La aplicación móvil fue desarrollada utilizando MIT App Inventor. Forma parte del proyecto educativo "Luna y sus fases", ya que su objetivo es permitirnos el control de tres luces LED mediante una interfaz
+                    sencilla, haciendo uso de la conexión Bluetooth con Arduino para ello.
+                </p>
+                <p>
+                    La pantalla principal presenta una imagen ilustrativa de la Luna
+                    en el centro y cuatro botones que permiten interactuar con las
+                    funciones principales: uno para activar y desactivar el Bluetooth (es decir, conectar o desconectar nuestros celulares de los Leds). De esta manera, el usuario puede manejar
+                    las luces desde cualquier dispositivo móvil sin necesidad de controlar
+                    directamente los componentes físicos del circuito.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Herramientas utilizadas</h2>
+                <p>
+                    Para realizar la aplicación se utilizó MIT App Inventor, una
+                    plataforma de desarrollo que permite crear aplicaciones para
+                    dispositivos móviles mediante una interfaz visual y bloques de
+                    programación.
+                </p>
+                <p>
+                    El entorno de trabajo se divide principalmente en dos partes.
+                    El <strong>Diseñador</strong> permite organizar los elementos
+                    visuales de la pantalla, como las imágenes y los botones. Por
+                    otro lado, el <strong>Editor de bloques</strong> permite establecer
+                    las acciones que se ejecutan cuando el usuario interactúa con
+                    dichos elementos.
+                </p>
+                <p>
+                    Esta forma de programación facilita la comprensión de la lógica
+                    de una aplicación, ya que las instrucciones se construyen mediante
+                    bloques que representan eventos, acciones y condiciones, en lugar
+                    de escribir todo el código manualmente.
+                </p>
+            </section>
+
+            <section>
+                <h2>3. Componentes principales de la interfaz</h2>
+                <p>
+                    La aplicación cuenta con una única pantalla principal, diseñada
+                    para que las funciones sean fáciles de encontrar y utilizar.
+                    Entre sus componentes se destacan:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Imagen de la Luna:</strong> funciona como elemento
+                        ilustrativo central de la interfaz y relaciona la aplicación
+                        con el proyecto.
+                    </li>
+                    <li>
+                        <strong>Botón de Bluetooth:</strong> permite activar o
+                        desactivar la función de conexión con Arduino.
+                    </li>
+                    <li>
+                        <strong>Tres botones de control:</strong> permiten enviar
+                        instrucciones relacionadas con las tres luces LED del circuito.
+                        Cada botón está destinado al control de uno de los colores disponibles (violeta, blanco o amarillo).
+                    </li>
+                </ul>
+                <p>
+                    La organización de estos elementos busca mantener una interfaz
+                    simple y evitar que el usuario tenga que recorrer distintas
+                    pantallas para encontrar las funciones principales.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Funcionamiento de los bloques</h2>
+                <p>
+                    El funcionamiento de la aplicación se establece mediante bloques
+                    de programación. Estos indican qué debe suceder cuando se realiza
+                    una acción, como presionar uno de los botones de la pantalla.
+                </p>
+                <p>
+                    En este tipo de programación se utilizan eventos para detectar
+                    las interacciones del usuario y ejecutar las instrucciones
+                    correspondientes. Por ejemplo, al presionar un botón de control,
+                    la aplicación debe realizar la acción programada para comunicarse
+                    con el circuito.
+                </p>
+                <p>
+                    Es importante distinguir entre el diseño visual y la programación:
+                    mientras que el Diseñador determina cómo se ve la aplicación,
+                    los bloques establecen cómo responde. Ambos trabajan en conjunto
+                    para que los botones cumplan sus funciones.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Conexión Bluetooth y control de las luces</h2>
+                <p>
+                    La comunicación entre la aplicación móvil y Arduino se realiza
+                    mediante Bluetooth. Esta tecnología permite transmitir información
+                    de forma inalámbrica entre dispositivos compatibles, evitando la
+                    necesidad de mantener una conexión física (cables) directa entre el celular
+                    y la placa durante el control.
+                </p>
+                <p>
+                    El botón destinado a Bluetooth permite gestionar la conexión.
+                    Para que la comunicación funcione, el dispositivo móvil debe poder
+                    conectarse con el módulo Bluetooth utilizado en el circuito.
+                </p>
+                <p>
+                    Por su parte, los tres botones restantes están destinados a
+                    controlar las luces LED. Cuando el usuario selecciona uno de ellos,
+                    la aplicación envía una instrucción que Arduino debe interpretar
+                    para realizar la acción correspondiente sobre el circuito (ejemplo: escender la led para que muestre el color violeta).
+                </p>
+                <p>
+                    La respuesta final depende de la programación de ambos lados:
+                    la aplicación debe enviar la instrucción adecuada y Arduino debe
+                    recibirla e interpretarla correctamente.
+                </p>
+            </section>
+
+                <section class="referencias">
+                        <h2>Referencias visuales</h2>
+
+                        <div class="galeria-referencias">
+
+                            <figure>
+                                <img src="Assets/referencia1.jpg"
+                                     alt="Descripción de la primera imagen">
+                                <figcaption>
+                                    Imagen 1: descripción de lo que se muestra
+                                    en la primera fotografía.
+                                </figcaption>
+                            </figure>
+
+                            <figure>
+                                <img src="Assets/referencia2.jpg"
+                                     alt="Descripción de la segunda imagen">
+                                <figcaption>
+                                    Imagen 2: explicación del contenido
+                                    de la segunda fotografía.
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                    </section>
+
+            <section>
+                <h2>6. Pruebas y conclusión</h2>
+                <p>
+                    Para comprobar el funcionamiento de la aplicación, es necesario
+                    verificar que los botones respondan correctamente, que la conexión
+                    Bluetooth pueda establecerse y que las instrucciones enviadas
+                    produzcan la respuesta esperada en las luces LED.
+                </p>
+                <p>
+                    Estas pruebas permiten detectar posibles errores tanto en los
+                    bloques de MIT App Inventor como en la comunicación con Arduino.
+                    También ayudan a comprobar que la interfaz resulte clara y que
+                    cada control realice la función prevista.
+                </p>
+                <p>
+                    En conclusión, el desarrollo de esta aplicación permitió aplicar
+                    conocimientos de programación visual, diseño de interfaces y
+                    comunicación inalámbrica. Además, demuestra cómo una aplicación
+                    móvil puede utilizarse como medio de control de un circuito
+                    electrónico, integrando herramientas de software y hardware en
+                    un mismo proyecto!
+                </p>
+            </section>
+
         </main>
 
     <hr>
