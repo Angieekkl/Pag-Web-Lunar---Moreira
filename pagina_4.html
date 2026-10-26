@@ -22,188 +22,127 @@
             <div class="portada">
                         <img src="Assets/arduino.jpg" alt="portada" class="portada-4">
                         </div>
-        <main>
+
             <h1>Construcción y programación del circuito con Arduino</h1>
 
             <section>
                 <h2>1. ¿Qué es Arduino?</h2>
                 <p>
                     Arduino es una plataforma de hardware y software que permite
-                    desarrollar proyectos electrónicos interactivos. Se utiliza para
-                    controlar componentes físicos mediante instrucciones programadas,
-                    lo que permite construir desde circuitos sencillos hasta sistemas
-                    capaces de responder a diferentes entradas y acciones.
+                    Desarrollar proyectos electrónicos interactivos. Mediante una
+                    Placa física y un programa, es posible controlar componentes
+                    Electrónicos, como luces LED, sensores y motores, según las
+                    Instrucciones establecidas.
                 </p>
                 <p>
-                    En este proyecto, Arduino se utiliza para controlar tres luces LED
-                    que representan las distintas fases de la Luna. La placa recibe
-                    instrucciones enviadas desde una aplicación móvil desarrollada
-                    con MIT App Inventor, mediante una conexión Bluetooth.
+                    En el proyecto “Luna y sus fases”, Arduino se utiliza para
+                    Controlar tres luces LED que representan de manera sencilla
+                    Diferentes apariencias de la Luna. ¡La idea es combinar los
+                    Conocimientos de programación con la construcción de un circuito
+                    Electrónico y una representación visual de un proyecto completo!
                 </p>
                 <p>
-                    ¡De esta manera, se combina programación, electrónica y
-                    comunicación inalámbrica para representar un proyecto compuesto
-                    mediante un modelo físico sencillo!
-                </p>
-            </section>
-
-            <section>
-                <h2>2. ¿Cómo funciona Arduino?</h2>
-                <p>
-                    El funcionamiento de Arduino se puede comprender a partir de dos
-                    partes principales: la placa física, donde se conectan los
-                    componentes electrónicos, y el programa que contiene las
-                    instrucciones para controlar su comportamiento.
-                </p>
-                <p>
-                    La placa Arduino UNO posee pines que permiten conectar componentes
-                    y controlar señales eléctricas. Cuando recibe las instrucciones
-                    correspondientes, puede activar o desactivar las salidas
-                    conectadas a los LED, según la lógica establecida en el programa.
-                </p>
-                <p>
-                    Para programarla se utiliza el entorno de desarrollo Arduino IDE,
-                    que permite escribir el código, verificar que no contenga errores
-                    de compilación y cargarlo en la placa mediante una conexión USB.
-                    Una vez cargado, el programa se ejecuta en el microcontrolador de
-                    Arduino y controla el circuito de acuerdo con las instrucciones
-                    programadas.
-                </p>
-                <p>
-                    En este caso, la programación debe permitir que Arduino interprete
-                    las instrucciones recibidas por Bluetooth y determine qué luces
-                    deben encenderse o apagarse para representar cada fase lunar.
+                    Para desarrollar este tipo de proyecto no alcanza solamente con
+                    Conectar los componentes: también es necesario programar la placa
+                    Para indicar qué debe hacer cada uno y en qué momento debe
+                    Encenderse o apagarse.
                 </p>
             </section>
 
             <section>
-                <h2>3. Componentes utilizados</h2>
+                <h2>2. Componentes y conexiones del circuito</h2>
                 <p>
-                    Para construir el circuito se utilizan distintos componentes
-                    electrónicos, cada uno con una función específica:
+                    Para realizar el circuito se utiliza una placa Arduino UNO,
+                    Tres luces LED, tres resistencias de 220 ohmios y cables de
+                    Conexión. Cada elemento cumple una función específica dentro
+                    Del sistema.
                 </p>
                 <ul>
                     <li>
-                        <strong>Arduino UNO:</strong> es la placa principal del
-                        proyecto. Ejecuta el programa y controla el funcionamiento
-                        de los LED.
+                        <strong>Arduino UNO:</strong> es la placa que ejecuta el
+                        Programa y controla las salidas eléctricas conectadas a los LED.
                     </li>
                     <li>
-                        <strong>Tres LED:</strong> se utilizan luces de color blanco,
-                        amarillo y violeta. Mediante distintas combinaciones de
-                        encendido y apagado, se busca representar las fases de la Luna.
+                        <strong>Tres LED:</strong> se utilizan luces de color rojo,
+                        Verde y azul. Mediante el encendido individual y la combinación
+                        De estas luces, se pueden representar diferentes colores para
+                        El proyecto.
                     </li>
                     <li>
-                        <strong>Tres resistencias de 220 ohmios:</strong> se conecta
-                        una resistencia en serie con cada LED para limitar la corriente
-                        eléctrica que circula por él y reducir el riesgo de dañarlo.
+                        <strong>Tres resistencias de 220 ohmios:</strong> se coloca
+                        Una en serie con cada LED para limitar la corriente eléctrica
+                        Y reducir el riesgo de dañarlos.
                     </li>
                     <li>
-                        <strong>Cables de conexión:</strong> permiten unir los pines
-                        de Arduino con los LED y las resistencias, completando el
-                        recorrido eléctrico del circuito.
+                        <strong>Cables:</strong> permiten conectar los componentes
+                        Con los pines de Arduino y completar el circuito eléctrico.
                     </li>
                     <li>
-                        <strong>Módulo o dispositivo Bluetooth:</strong> permite la
-                        comunicación inalámbrica entre la aplicación móvil y Arduino.
+                        <strong>Bluetooth:</strong> permite la comunicación inalámbrica
+                        Entre la aplicación móvil y Arduino, para enviar instrucciones
+                        Desde el celular.
                     </li>
                 </ul>
                 <p>
-                    Cada componente cumple una función importante. La placa procesa
-                    las instrucciones, los cables conducen las conexiones eléctricas,
-                    las resistencias protegen los LED y las luces permiten visualizar
-                    el resultado del control electrónico.
+                    El LED azul está conectado al Arduino UNO mediante el pin 9, el verde al pin 10 y el rojo al pin 11. Cada LED se conecta también a una resistencia de 220 ohmios y a GND, que corresponde a la conexión de tierra del circuito.
+                </p>
+                <p>
+                    Estas conexiones deben coincidir con los números de pin establecidos en el programa para que Arduino pueda controlar correctamente cada luz.
                 </p>
             </section>
 
             <section>
-                <h2>4. Programación y control de los LED</h2>
+                <h2>3. Programación y funcionamiento de la placa</h2>
                 <p>
-                    Además de realizar las conexiones físicas, es necesario programar
-                    Arduino para establecer cómo debe responder el circuito. El código
-                    define qué pines se utilizan para los LED (9, 10 y 11) y qué acciones se deben
-                    realizar cuando se recibe una instrucción.
+                    Para controlar los componentes se necesita un programa que establezca las acciones que debe realizar Arduino. En el código utilizado se identifican los tres LED mediante variables: red, green y blue, asociadas a los pines 11, 10 y 9, respectivamente.
                 </p>
                 <p>
-                    En términos generales, el programa configura los pines como
-                    salidas y controla su estado mediante instrucciones que permiten
-                    encender o apagar cada luz. Para que esto funcione correctamente,
-                    las conexiones físicas deben coincidir con los pines indicados
-                    en el código.
+                    La función <strong>setup()</strong> se ejecuta al iniciar el programa y configura los pines de los LED como salidas mediante la instrucción <strong>pinMode()</strong>. Esto permite que la
+                    Placa controle el encendido y apagado de las luces.
                 </p>
                 <p>
-                    La comunicación Bluetooth permite que las instrucciones lleguen
-                    desde la aplicación móvil. Según los datos que se reciban, Arduino
-                    debe identificar la acción solicitada y aplicar la combinación de
-                    luces correspondiente.
+                    Por otro lado, la función <strong>loop()</strong> repite continuamente las instrucciones principales. En el programa primero se enciende el LED azul y se mantienen apagados los otros dos. Luego se encienden en simultaneo el rojo y el azul para crear el color violeta, el verde se mantiene apagado. Después se encienden los tres LED al mismo tiempo y, finalmente, se apagan todos.
                 </p>
                 <p>
-                    De esta manera, la programación relaciona las acciones realizadas
-                    en la aplicación con las respuestas físicas del circuito. La
-                    aplicación funciona como medio de control, mientras que Arduino
-                    ejecuta las instrucciones sobre los componentes electrónicos.
+                    Entre cada etapa se utiliza la instrucción
+                    <strong>delay(2000)</strong>, que introduce una pausa de dos segundos. Así, cada estado de las luces puede observarse antes de que el programa continúe con la siguiente acción.
                 </p>
             </section>
 
             <section>
-                <h2>5. Conexión con la aplicación móvil</h2>
+                <h2>4. Simulación y comprobación del funcionamiento</h2>
                 <p>
-                    El circuito forma parte de un sistema que integra Arduino con una
-                    aplicación desarrollada mediante MIT App Inventor. La aplicación,
-                    instalada en un teléfono móvil compatible, cuenta con un botón
-                    destinado a gestionar la conexión Bluetooth y otros tres botones
-                    para controlar las luces LED.
+                    Antes de llevar el circuito a su montaje físico, se utilizó
+                    <strong>Wokwi</strong>, un simulador en línea que permite
+                    Representar placas electrónicas, conectar componentes y probar
+                    Programas sin necesidad de disponer inicialmente de todos los
+                    Elementos reales.
                 </p>
                 <p>
-                    Cuando se establece la comunicación, la aplicación puede enviar
-                    instrucciones a Arduino. La placa recibe esos datos a través del
-                    dispositivo Bluetooth utilizado y los procesa mediante el programa
-                    cargado en el microcontrolador.
+                    En la simulación se incorporó una placa Arduino UNO, tres LED
+                    De distintos colores, tres resistencias de 220 ohmios y las
+                    Conexiones necesarias para completar el circuito. Luego se
+                    Incorporó el programa encargado de controlar las luces.
                 </p>
                 <p>
-                    Para que el sistema funcione, es necesario que la conexión esté
-                    correctamente establecida, que la aplicación envíe los datos
-                    esperados y que el código de Arduino interprete esos datos de la
-                    manera prevista.
+                    Al ejecutar la simulación, se pudo comprobar que las luces
+                    Respondían a la secuencia programada: primero se encendía el
+                    LED rojo, después se encendían los tres LED simultáneamente y,
+                    Por último, se apagaban todos. Cada estado duraba aproximadamente
+                    Dos segundos antes de cambiar.
                 </p>
                 <p>
-                    Esta integración permite controlar un circuito electrónico desde
-                    una interfaz visual sencilla, sin tener que encender y apagar
-                    manualmente cada LED. La explicación detallada del diseño de la
-                    aplicación y sus botones se encuentra en la página dedicada a
-                    MIT App Inventor.
+                    Esta prueba permitió verificar el funcionamiento básico de la
+                    Programación y las conexiones representadas en el simulador.
+                    También ayudó a detectar posibles errores antes de pasar al
+                    Armado físico del circuito.
                 </p>
-            </section>
+                <p>
+                    Las siguientes imágenes muestran el circuito simulado y algunas
+                    De las etapas de funcionamiento que se observaron durante la prueba.
+                </p>
 
-            <section>
-                <h2>6. Representación de las fases de la Luna</h2>
-                <p>
-                    El objetivo principal del circuito es representar de una forma
-                    sencilla las diferentes fases de la Luna. Para ello, los tres LED
-                    se encuentran ubicados dentro de una estructura redondeada con
-                    pequeños agujeros que imitan visualmente los cráteres de la
-                    superficie lunar.
-                </p>
-                <p>
-                    Al encender luces individuales o realizar combinaciones entre
-                    ellas, se busca representar distintas apariencias de la Luna.
-                    Los colores blanco, amarillo y violeta permiten diferenciar
-                    visualmente las luces y reconocer las combinaciones seleccionadas.
-                </p>
-                <p>
-                    La estructura física ayuda a que el circuito no sea solamente un
-                    conjunto de componentes electrónicos, sino también una maqueta
-                    relacionada con el tema del proyecto. De esta manera, la
-                    programación y el diseño del montaje trabajan juntos para
-                    representar visualmente el fenómeno astronómico.
-                </p>
-                <p>
-                    Es importante aclarar que los LED constituyen una representación
-                    didáctica simplificada: las fases reales de la Luna se producen
-                    por los cambios en la porción iluminada que observamos desde la
-                    Tierra, no por cambios de color de la Luna.
-                </p>
-            </section>
+                     </section>
 
                     <section class="referencias">
                         <h2>Referencias visuales</h2>
@@ -211,55 +150,118 @@
                         <div class="galeria-referencias">
 
                             <figure>
-                                <img src="Assets/referencia1.jpg"
+                                <img src="Assets/simulador_arduino.png"
                                      alt="Descripción de la primera imagen">
                                 <figcaption>
-                                    Imagen 1: descripción de lo que se muestra
-                                    en la primera fotografía.
+                                    En esta imagen se puede apreciar a un simulador de Arduino UNO funcional con los componentes mencionados anteriormente (leds Roja, Azul, Verde, con resistencias y cables)
                                 </figcaption>
                             </figure>
 
                             <figure>
-                                <img src="Assets/referencia2.jpg"
+                                <img src="Assets/codigo_arduino.png"
                                      alt="Descripción de la segunda imagen">
                                 <figcaption>
-                                    Imagen 2: explicación del contenido
-                                    de la segunda fotografía.
+                                    En esta imagen se puede apreciar parte del codigo utilizado para probar la funcionalidad del Arduino
                                 </figcaption>
                             </figure>
 
                         </div>
                     </section>
 
+
+            </section>
+
             <section>
-                <h2>7. ¿Qué aprendimos? Conclusión</h2>
+                <h2>5. Control mediante Bluetooth y la aplicación móvil</h2>
                 <p>
-                    La realización de este proyecto permitió poner en práctica
-                    conocimientos de programación y electrónica mediante la
-                    construcción de un circuito con Arduino UNO. Se trabajó con la
-                    conexión de componentes, el uso de cables y resistencias, y el
-                    control de luces LED a través de instrucciones programadas.
+                    Una de las partes del proyecto es integrar Arduino con la
+                    Aplicación móvil desarrollada mediante MIT App Inventor.
+                    La aplicación cuenta con un botón destinado a gestionar la
+                    Conexión Bluetooth y otros tres botones para controlar las luces
+                    LED desde el teléfono celular.
                 </p>
                 <p>
-                    También se integró el circuito con una aplicación móvil creada en
-                    MIT App Inventor, utilizando Bluetooth como medio de comunicación.
-                    Esto permitió comprender cómo una aplicación puede enviar
-                    instrucciones a un dispositivo electrónico y cómo el programa
-                    cargado en Arduino las transforma en acciones físicas.
+                    La comunicación Bluetooth permite transmitir información entre
+                    Dispositivos compatibles sin utilizar una conexión física directa
+                    Entre el celular y la placa. Para que el sistema funcione, es
+                    Necesario que el dispositivo Bluetooth esté conectado correctamente a Arduino y que la aplicación pueda comunicarse con él.
                 </p>
                 <p>
-                    Además, el proyecto permitió relacionar los conocimientos técnicos
-                    con una propuesta visual vinculada a las fases lunares. La
-                    estructura redondeada con apariencia de cráteres y las diferentes
-                    combinaciones de luces ayudan a comunicar la idea de una manera
-                    simple y comprensible.
+                    Además, el programa de Arduino debe incluir las instrucciones
+                    Necesarias para recibir e interpretar los datos enviados por la
+                    Aplicación. Según la instrucción recibida, la placa podrá encender
+                    O apagar los LED correspondientes.
+                </p>
+        
+                <p>
+                    La explicación del diseño de la aplicación y de sus botones se
+                    Encuentra en la página dedicada a MIT App Inventor. La integración
+                    Entre ambos sistemas permite plantear el control de un circuito
+                    Electrónico desde una interfaz móvil.
+                </p>
+            </section>
+
+            <section>
+                <h2>6. Representación de las fases de la Luna</h2>
+                <p>
+                    El objetivo del circuito es representar de una forma sencilla
+                    Las distintas fases de la Luna. Para lograrlo, los tres LED se
+                    Ubican dentro de una estructura redondeada con pequeños agujeros
+                    Que imitan visualmente los cráteres de la superficie lunar.
                 </p>
                 <p>
-                    En conclusión, este trabajo demuestra la importancia de integrar
-                    hardware, software y diseño para desarrollar un proyecto funcional.
-                    También permitió aprender que el funcionamiento correcto depende
-                    tanto de las conexiones eléctricas como de la programación y de
-                    la comunicación entre los dispositivos!
+                    Para conseguir los colores deseados, se utilizan distintas
+                    Combinaciones de las luces roja, verde y azul. El LED azul puede
+                    Encenderse por sí solo para representar el azul; la combinación
+                    Del azul y el rojo permite obtener un tono violeta o magenta,
+                    Y el encendido de los tres LED al mismo tiempo produce el blanco.
+                </p>
+                <p>
+                    Estas combinaciones permiten diferenciar visualmente los estados
+                    Del modelo y utilizarlos para representar distintas apariencias
+                    De la Luna. De esta manera, el circuito no solo muestra el
+                    Funcionamiento de los componentes electrónicos, sino que también
+                    Se relaciona con el tema principal del proyecto.
+                </p>
+                <p>
+                    La estructura redondeada complementa el circuito y hace que el
+                    Montaje se parezca a una maqueta lunar. Así, la programación,
+                    Los componentes electrónicos y el diseño físico trabajan juntos
+                    Para comunicar la idea de las fases lunares de forma simple.
+                </p>
+                <p>
+                    ¡Se trata de una representación didáctica simplificada!
+                </p>
+
+            <h2>7. ¿Qué aprendimos? Conclusión</h2>
+                <p>
+                    La realización de este proyecto permitió aprender los conceptos
+                    Básicos del funcionamiento de Arduino y su aplicación en un
+                    Circuito electrónico. Se trabajó con la identificación de
+                    Componentes, la conexión de LED, el uso de resistencias para
+                    Limitar la corriente y la selección de pines digitales para
+                    Controlar las luces.
+                </p>
+                <p>
+                    También se practicó la programación de una secuencia de acciones,
+                    Utilizando funciones como <strong>setup()</strong> y
+                    <strong>loop()</strong>, instrucciones para configurar las salidas
+                    Y pausas para controlar el tiempo durante el cual permanece
+                    Encendida cada combinación de luces.
+                </p>
+                <p>
+                    Finalmente, el proyecto relaciona la programación y la electrónica
+                    Con una propuesta visual sobre las fases de la Luna. La integración
+                    Con una aplicación móvil mediante Bluetooth forma parte del
+                    Objetivo de control del circuito, siempre que se complete y
+                    Compruebe la comunicación entre ambos dispositivos.
+                </p>
+                <p>
+                    ¡En conclusión, el trabajo permitió comprender cómo un programa
+                    Puede controlar componentes físicos y cómo una simulación sirve
+                    Para probar una idea antes de construirla. Además, muestra la
+                    Importancia de combinar hardware, software y diseño para
+                    Desarrollar un proyecto tecnológico con un propósito educativo!
                 </p>
             </section>
 

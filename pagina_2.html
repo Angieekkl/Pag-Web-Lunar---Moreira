@@ -18,25 +18,35 @@
         </ul>
     </nav>
 
-    <hr> <main>
-            <div class="portada">
-                    <img src="Assets/ai-bee-horiz.png" alt="portada" class="portada-2">
-                    </div>
+    <hr> 
+
         <main>
+            <div class="portada">
+                <img src="Assets/ai-bee-horiz.png" alt="Portada de MIT App Inventor" class="portada-2">
+            </div>
+
             <h1>Desarrollo de la aplicación móvil</h1>
 
             <section>
                 <h2>1. ¿En qué consiste la aplicación?</h2>
                 <p>
-                    La aplicación móvil fue desarrollada utilizando MIT App Inventor. Forma parte del proyecto educativo "Luna y sus fases", ya que su objetivo es permitirnos el control de tres luces LED mediante una interfaz
-                    sencilla, haciendo uso de la conexión Bluetooth con Arduino para ello.
+                    La aplicación móvil fue desarrollada utilizando MIT App Inventor
+                    y forma parte del proyecto educativo "Luna y sus fases". Su
+                    objetivo es permitir el control de una maqueta que representa
+                    las distintas fases de la Luna mediante un circuito electrónico
+                    conectado a Arduino.
                 </p>
                 <p>
-                    La pantalla principal presenta una imagen ilustrativa de la Luna
-                    en el centro y cuatro botones que permiten interactuar con las
-                    funciones principales: uno para activar y desactivar el Bluetooth (es decir, conectar o desconectar nuestros celulares de los Leds). De esta manera, el usuario puede manejar
-                    las luces desde cualquier dispositivo móvil sin necesidad de controlar
-                    directamente los componentes físicos del circuito.
+                    La pantalla principal cuenta con una interfaz sencilla, un
+                    elemento visual relacionado con la Luna y botones destinados
+                    a gestionar la conexión Bluetooth y controlar su representación
+                    mediante luces LED.
+                </p>
+                <p>
+                    De esta manera, el usuario puede enviar instrucciones al circuito
+                    desde un teléfono móvil, sin necesidad de manipular directamente
+                    los componentes físicos. La aplicación funciona como un medio
+                    de control entre el usuario y el montaje electrónico.
                 </p>
             </section>
 
@@ -45,8 +55,8 @@
                 <p>
                     Para realizar la aplicación se utilizó MIT App Inventor, una
                     plataforma de desarrollo que permite crear aplicaciones para
-                    dispositivos móviles mediante una interfaz visual y bloques de
-                    programación.
+                    dispositivos móviles mediante una interfaz visual y bloques
+                    de programación.
                 </p>
                 <p>
                     El entorno de trabajo se divide principalmente en dos partes.
@@ -67,30 +77,36 @@
             <section>
                 <h2>3. Componentes principales de la interfaz</h2>
                 <p>
-                    La aplicación cuenta con una única pantalla principal, diseñada
-                    para que las funciones sean fáciles de encontrar y utilizar.
-                    Entre sus componentes se destacan:
+                    La aplicación cuenta con una pantalla principal diseñada para
+                    que las funciones sean fáciles de encontrar y utilizar. Sus
+                    componentes principales son:
                 </p>
                 <ul>
                     <li>
-                        <strong>Imagen de la Luna:</strong> funciona como elemento
-                        ilustrativo central de la interfaz y relaciona la aplicación
-                        con el proyecto.
+                        <strong>Imagen de la Luna:</strong> es el elemento visual
+                        que relaciona la interfaz con el tema central del proyecto.
                     </li>
                     <li>
-                        <strong>Botón de Bluetooth:</strong> permite activar o
-                        desactivar la función de conexión con Arduino.
+                        <strong>Botón de Bluetooth:</strong> permite gestionar la
+                        conexión inalámbrica entre el teléfono móvil y el dispositivo
+                        Bluetooth conectado a Arduino.
                     </li>
                     <li>
-                        <strong>Tres botones de control:</strong> permiten enviar
-                        instrucciones relacionadas con las tres luces LED del circuito.
-                        Cada botón está destinado al control de uno de los colores disponibles (violeta, blanco o amarillo).
+                        <strong>Botón de control de la Luna:</strong> está destinado
+                        a enviar instrucciones para cambiar la representación visual
+                        de las fases lunares mediante las luces LED del circuito.
+                    </li>
+                    <li>
+                        <strong>ClienteBluetooth1:</strong> es un componente no visible
+                        de MIT App Inventor que permite gestionar la comunicación
+                        Bluetooth desde los bloques de programación.
                     </li>
                 </ul>
                 <p>
                     La organización de estos elementos busca mantener una interfaz
                     simple y evitar que el usuario tenga que recorrer distintas
-                    pantallas para encontrar las funciones principales.
+                    pantallas para encontrar las funciones principales. 
+                    La aplicación se concentra exclusivamente en la representación de la Luna de una forma simplificada!
                 </p>
             </section>
 
@@ -98,21 +114,28 @@
                 <h2>4. Funcionamiento de los bloques</h2>
                 <p>
                     El funcionamiento de la aplicación se establece mediante bloques
-                    de programación. Estos indican qué debe suceder cuando se realiza
-                    una acción, como presionar uno de los botones de la pantalla.
+                    de programación. Estos indican qué debe suceder cuando se inicia
+                    la aplicación, cuando se solicitan permisos o cuando el usuario
+                    presiona uno de los botones.
                 </p>
                 <p>
-                    En este tipo de programación se utilizan eventos para detectar
-                    las interacciones del usuario y ejecutar las instrucciones
-                    correspondientes. Por ejemplo, al presionar un botón de control,
-                    la aplicación debe realizar la acción programada para comunicarse
-                    con el circuito.
+                    Para utilizar Bluetooth, la aplicación debe solicitar los permisos
+                    necesarios y permitir que el usuario seleccione el dispositivo
+                    correspondiente, si así lo requiere la configuración utilizada.
+                    Una vez seleccionada la conexión, los bloques intentan establecer
+                    la comunicación con el dispositivo.
+                </p>
+                <p>
+                    El botón dedicado a la Luna debe ejecutar la acción programada
+                    para enviar la instrucción correspondiente a Arduino. La placa
+                    recibe esa información y, mediante su propio programa, controla
+                    las luces LED para representar el estado seleccionado.
                 </p>
                 <p>
                     Es importante distinguir entre el diseño visual y la programación:
                     mientras que el Diseñador determina cómo se ve la aplicación,
                     los bloques establecen cómo responde. Ambos trabajan en conjunto
-                    para que los botones cumplan sus funciones.
+                    para que el control de la maqueta pueda realizarse desde el celular.
                 </p>
             </section>
 
@@ -121,78 +144,61 @@
                 <p>
                     La comunicación entre la aplicación móvil y Arduino se realiza
                     mediante Bluetooth. Esta tecnología permite transmitir información
-                    de forma inalámbrica entre dispositivos compatibles, evitando la
-                    necesidad de mantener una conexión física (cables) directa entre el celular
+                    de forma inalámbrica entre dispositivos compatibles, sin necesidad
+                    de mantener una conexión física mediante cables entre el celular
                     y la placa durante el control.
                 </p>
                 <p>
-                    El botón destinado a Bluetooth permite gestionar la conexión.
-                    Para que la comunicación funcione, el dispositivo móvil debe poder
-                    conectarse con el módulo Bluetooth utilizado en el circuito.
+                    El componente <strong> ClienteBluetooth1 </strong> permite gestionar esta
+                    comunicación desde MIT App Inventor. Para que funcione, es
+                    necesario que el dispositivo Bluetooth utilizado en el circuito
+                    esté conectado correctamente a Arduino y que el celular pueda
+                    establecer la conexión con él.
                 </p>
                 <p>
-                    Por su parte, los tres botones restantes están destinados a
-                    controlar las luces LED. Cuando el usuario selecciona uno de ellos,
-                    la aplicación envía una instrucción que Arduino debe interpretar
-                    para realizar la acción correspondiente sobre el circuito (ejemplo: escender la led para que muestre el color violeta).
+                    Una vez establecida la comunicación, el botón de control de la
+                    Luna puede enviar instrucciones para cambiar el estado de las
+                    luces LED. Arduino debe recibir esos datos e interpretarlos
+                    mediante el programa cargado en la placa para realizar la acción
+                    correspondiente.
                 </p>
                 <p>
-                    La respuesta final depende de la programación de ambos lados:
-                    la aplicación debe enviar la instrucción adecuada y Arduino debe
-                    recibirla e interpretarla correctamente.
+                    Así, la aplicación funciona como una interfaz de control y Arduino
+                    se encarga de ejecutar las instrucciones sobre el circuito físico.
+                    El funcionamiento correcto depende de que ambos programas
+                    utilicen instrucciones compatibles y de que la conexión Bluetooth
+                    esté establecida.
                 </p>
             </section>
-
-                <section class="referencias">
-                        <h2>Referencias visuales</h2>
-
-                        <div class="galeria-referencias">
-
-                            <figure>
-                                <img src="Assets/referencia1.jpg"
-                                     alt="Descripción de la primera imagen">
-                                <figcaption>
-                                    Imagen 1: descripción de lo que se muestra
-                                    en la primera fotografía.
-                                </figcaption>
-                            </figure>
-
-                            <figure>
-                                <img src="Assets/referencia2.jpg"
-                                     alt="Descripción de la segunda imagen">
-                                <figcaption>
-                                    Imagen 2: explicación del contenido
-                                    de la segunda fotografía.
-                                </figcaption>
-                            </figure>
-
-                        </div>
-                    </section>
 
             <section>
                 <h2>6. Pruebas y conclusión</h2>
                 <p>
                     Para comprobar el funcionamiento de la aplicación, es necesario
-                    verificar que los botones respondan correctamente, que la conexión
-                    Bluetooth pueda establecerse y que las instrucciones enviadas
-                    produzcan la respuesta esperada en las luces LED.
+                    verificar que se puedan conceder los permisos solicitados, que
+                    la conexión Bluetooth pueda establecerse y que el botón de
+                    control de la Luna envíe las instrucciones correspondientes.
                 </p>
                 <p>
-                    Estas pruebas permiten detectar posibles errores tanto en los
-                    bloques de MIT App Inventor como en la comunicación con Arduino.
-                    También ayudan a comprobar que la interfaz resulte clara y que
-                    cada control realice la función prevista.
+                    También es importante comprobar que las instrucciones enviadas
+                    produzcan la respuesta esperada en las luces LED. Estas pruebas
+                    permiten detectar posibles errores tanto en los bloques de
+                    MIT App Inventor como en la comunicación con Arduino.
                 </p>
                 <p>
                     En conclusión, el desarrollo de esta aplicación permitió aplicar
                     conocimientos de programación visual, diseño de interfaces y
                     comunicación inalámbrica. Además, demuestra cómo una aplicación
-                    móvil puede utilizarse como medio de control de un circuito
-                    electrónico, integrando herramientas de software y hardware en
-                    un mismo proyecto!
+                    móvil puede utilizarse para controlar un circuito electrónico
+                    desde una interfaz sencilla.
+                </p>
+                <p>
+                    ¡La aplicación forma parte de una propuesta que integra software,
+                    hardware y una representación visual de las fases lunares.
+                    De esta manera, el proyecto reúne los conocimientos adquiridos
+                    durante el año y los aplica en una experiencia práctica!
                 </p>
             </section>
-
         </main>
 
     <hr>
