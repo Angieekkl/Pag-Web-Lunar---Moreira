@@ -1,0 +1,40 @@
+(() => {
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d');
+const W=800,H=600,T=40,OFFSET=40,ROWS=13,COLS=18;
+const C={bg:'#080b20',white:'#f4f4ff',blue:'#43c9ff',red:'#ff526e',green:'#71ff9c',yellow:'#ffe66d',purple:'#a78bfa'};
+const maze=[
+"##################","#                #","# ## ### ## ###  #","#                #","# ### ## ## ###  #","#                #","# ## ### ## ###  #","#                #","# ### ## ## ###  #","#                #","# ## ### ## ###  #","#                #","##################"];
+const asset=n=>`Assets/${n}`;
+const imageNames=['alien1','alien2','asteroides','pacAlien1','pacAlien1_2','pacAlien1_3','pacAlien1_4','pacAlien2','pacAlien2_2','pacAlien2_3','pacAlien2_4','lose_1','lose_2','lose_3','lose_4','lose_5','Luna1','Luna2','Luna3'];
+const imgs={};imageNames.forEach(n=>{const im=new Image();im.src=asset(n+'.jpeg');imgs[n]=im;});
+const music=new Audio(asset('halloween-music_2.mp3'));music.loop=true;music.volume=.42;
+const loseSound=new Audio(asset('lose_sound.mp3'));
+let state='start',player=[1,1],coins=new Map(),asteroids=[],hits=0,startTime=0,finalTime=0,lastMove=0,lastAsteroid=0,invulnerableUntil=0,blinkUntil=0,dir='derecha',mouth=false,lastMouth=0,loseIndex=0,loseTimer=0,keys=new Set(),lastFrame=0,frame=0;
+function drawText(txt,x,y,size,color=C.white){ctx.fillStyle=color;ctx.font=`bold ${size}px Courier New,monospace`;ctx.textAlign='center';ctx.fillText(txt,x,y);}
+function image(n,x,y,w,h){const im=imgs[n];if(im&&im.complete&&im.naturalWidth){ctx.drawImage(im,x-w/2,y-h/2,w,h);}else{ctx.fillStyle='#a9d8ff';ctx.beginPath();ctx.arc(x,y,Math.min(w,h)/3,0,Math.PI*2);ctx.fill();}}
+function stopMusic(){music.pause();music.currentTime=0;}
+function startMusic(){music.play().catch(()=>{});}
+function clear(){ctx.fillStyle=C.bg;ctx.fillRect(0,0,W,H);}
+function startScreen(){state='start';clear();drawText('★ AVENTURA LUNAR ★',400,115,30,C.blue);image(frame%2?'alien2':'alien1',400,230,180,180);drawText('EL EXPLORADOR DE LA LUNA',400,345,16);drawText('Recoge todas las lunas',400,395,15,C.yellow);drawText('¡Esquiva los asteroides!',400,425,15,C.red);drawText('PULSA ENTER PARA COMENZAR',400,485,17,C.green);drawText('Flechas / WASD: mover  |  P: pausa',400,555,12,C.purple);}
+function begin(){state='transition';keys.clear();stopMusic();clear();drawText('★ AVENTURA LUNAR ★',400,115,30,C.blue);image('alien2',400,270,180,180);drawText('¡COMIENZA LA EXPLORACIÓN!',400,440,17,C.green);setTimeout(()=>{if(state==='transition')prepare();},700);}
+function prepare(){state='play';player=[1,1];hits=0;asteroids=[];coins.clear();for(let r=1;r<ROWS-1;r++)for(let c=1;c<COLS-1;c++)if(maze[r][c]===' '&&!(r===1&&c===1))coins.set(`${r},${c}`,Math.floor(Math.random()*3));startTime=performance.now();lastMove=lastAsteroid=startTime;invulnerableUntil=blinkUntil=0;dir='derecha';mouth=false;keys.clear();startMusic();drawGame();}
+function drawMaze(){for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++)if(maze[r][c]==='#'){const x=OFFSET+c*T,y=r*T;ctx.fillStyle='#182858';ctx.fillRect(x,y,T,T);ctx.strokeStyle='#334a91';ctx.lineWidth=2;ctx.strokeRect(x,y,T,T);}}
+function drawGame(){clear();let seed=17;for(let i=0;i<65;i++){seed=(seed*9301+49297)%233280;let x=(seed/233280)*W;seed=(seed*9301+49297)%233280;let y=(seed/233280)*520;ctx.fillStyle='#485079';ctx.fillRect(x,y,2,2);}drawMaze();
+for(const [key,kind] of coins){const [r,c]=key.split(',').map(Number);image(['Luna1','Luna2','Luna3'][kind],OFFSET+c*T+20,r*T+20,25,25);}
+asteroids.forEach(a=>image('asteroides',a.x,a.y,88,88));
+const now=performance.now(),[r,c]=player,px=OFFSET+c*T+20,py=r*T+20;
+if(now>=blinkUntil||Math.floor(now/125)%2===0){if(keys.size&&now-lastMouth>150){mouth=!mouth;lastMouth=now;}const name=(mouth?'pacAlien2':'pacAlien1')+({'derecha':'','abajo':'_2','izquierda':'_3','arriba':'_4'}[dir]);image(name,px,py,36,36);}
+ctx.fillStyle='#11152e';ctx.fillRect(0,520,W,80);drawText(`LUNAS: ${coins.size}`,120,560,13,C.blue);drawText(`IMPACTOS: ${hits}/3`,350,560,13,C.red);drawText(`TIEMPO: ${((now-startTime)/1000).toFixed(1)}s`,610,560,13,C.yellow);}
+function move(){let dr=0,dc=0;if(keys.has('ArrowUp')||keys.has('w'))dr=-1;else if(keys.has('ArrowDown')||keys.has('s'))dr=1;else if(keys.has('ArrowLeft')||keys.has('a'))dc=-1;else if(keys.has('ArrowRight')||keys.has('d'))dc=1;if(!dr&&!dc){mouth=false;return;}dir=dr<0?'arriba':dr>0?'abajo':dc<0?'izquierda':'derecha';const nr=player[0]+dr,nc=player[1]+dc;if(maze[nr]?.[nc]&&maze[nr][nc]!=='#'){player=[nr,nc];coins.delete(`${nr},${nc}`);}if(!coins.size){finalTime=(performance.now()-startTime)/1000;finish(true);}}
+function updateAsteroids(now,dt){if(now-lastAsteroid>1500){lastAsteroid=now;asteroids.push({x:25+Math.random()*(W-50),y:-20,speed:100+Math.random()*140});}const [r,c]=player,px=OFFSET+c*T+20,py=r*T+20;for(let i=asteroids.length-1;i>=0;i--){let a=asteroids[i];a.y+=a.speed*dt;if(a.y>H+50){asteroids.splice(i,1);continue;}if(Math.hypot(a.x-px,a.y-py)<48){asteroids.splice(i,1);if(now>=invulnerableUntil){hits++;blinkUntil=invulnerableUntil=now+6000;if(hits>=3){finish(false);return;}}}}}
+function finish(win){state='end';keys.clear();stopMusic();clear();if(win){drawText('¡MISIÓN CUMPLIDA!',400,170,30,C.green);drawText('¡FELICITACIONES, EXPLORADOR!',400,245,17,C.yellow);drawText(`Tiempo: ${finalTime.toFixed(1)} segundos`,400,315,19,C.blue);drawText('Todas las lunas recuperadas',400,370,14);drawText('ENTER: volver a jugar',400,440,17,C.green);drawText('ESC: volver al menú',400,485,13);}else{loseSound.currentTime=0;loseSound.play().catch(()=>{});loseIndex=0;drawLose();}}
+function drawLose(){if(state!=='end')return;clear();image(`lose_${loseIndex+1}`,400,245,150,150);drawText('¡IMPACTO CRÍTICO!',400,90,28,C.red);drawText('El explorador fue alcanzado por un asteroide',400,390,14);drawText('MISIÓN FALLIDA',400,445,25,C.red);ctx.fillStyle='#182858';ctx.strokeStyle=C.blue;ctx.lineWidth=3;ctx.fillRect(275,485,250,60);ctx.strokeRect(275,485,250,60);drawText('VOLVER A JUGAR',400,522,16,C.green);const delay=loseIndex<4?550:4000;loseIndex=loseIndex<4?loseIndex+1:0;clearTimeout(loseTimer);loseTimer=setTimeout(drawLose,delay);}
+function pause(){if(state==='play'){state='pause';keys.clear();stopMusic();clear();image('alien1',400,205,180,180);drawText('SEÑAL INTERRUMPIDA',400,350,25,C.blue);drawText('PAUSA ESPACIAL',400,405,30,C.yellow);drawText('Pulsa P para continuar',400,475,16);drawText('ENTER: volver al inicio',400,515,13,C.purple);}else if(state==='pause'){state='play';lastFrame=performance.now();startMusic();}}
+function loop(now){const dt=Math.min((now-lastFrame)/1000,.05);lastFrame=now;if(state==='play'){if(now-lastMove>=130){move();lastMove=now;}if(state==='play'){updateAsteroids(now,dt);if(state==='play')drawGame();}}else if(state==='start'&&Math.floor(now/2000)!==Math.floor((now-16)/2000)){frame++;startScreen();}requestAnimationFrame(loop);}
+function handleDown(e){const k=e.key===' ' ? ' ' : e.key.toLowerCase();if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(k))e.preventDefault();if(k==='escape'){state='start';stopMusic();startScreen();return;}if(k==='enter'){if(state==='start'||state==='end')begin();else if(state==='pause'){state='start';startScreen();}return;}if(k==='p'){pause();return;}if(state==='play')keys.add(k);}
+function handleUp(e){keys.delete(e.key.toLowerCase());}
+window.addEventListener('keydown',handleDown);window.addEventListener('keyup',handleUp);
+canvas.addEventListener('click',e=>{if(state==='end'){const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)*W/rect.width,y=(e.clientY-rect.top)*H/rect.height;if(x>=275&&x<=525&&y>=485&&y<=545)begin();}});
+document.querySelectorAll('[data-key]').forEach(b=>{const k=b.dataset.key.toLowerCase();b.addEventListener('pointerdown',e=>{e.preventDefault();keys.add(k);});['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev,()=>keys.delete(k)));});
+startScreen();lastFrame=performance.now();requestAnimationFrame(loop);
+})();

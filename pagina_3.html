@@ -1,320 +1,604 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Css/Estilos.css">
-    <title>Juego Didáctico hecho - Python</title>
+    <title>Desarrollo de Videojuegos - Python</title>
 </head>
+
 <body>
 
     <nav>
         <ul>
             <li><a href="index.html">Inicio - Presentación</a></li>
             <li><a href="pagina_1.html">Página Web Lunar</a></li>
-            <li><a href="pagina_2.html">App Lunar</a></li>
-            <li><a href="pagina_3.html">Juego Didactico - Python</a></li>
-            <li><a href="pagina_4.html">Leds y Arduino</a></li>
+            <li><a href="pagina_3.html">Juegos Lunares - Python</a></li>
         </ul>
     </nav>
 
     <hr>
-        <main>
-            <div class="portada">
-                    <img src="Assets/python.png" alt="portada" class="portada-3">
-                    </div>
-            <h1>La realización del juego didáctico</h1>
 
-            <p>
-                En esta sección se explica cómo se desarrolló el juego didáctico
-                "Cuestionario Lunar", cuáles son las herramientas utilizadas para
-                programarlo y cómo funciona desde que se abre hasta que termina
-                una partida.
-            </p>
+    <main>
 
-            <hr>
+        <div class="portada">
+            <img src="Assets/python.png" alt="Portada de Python" class="portada-3">
+        </div>
 
-            <h2>1. ¿En qué consiste el juego?</h2>
+        <h1>Desarrollo de videojuegos con Python</h1>
 
-            <p>
-                El Cuestionario Lunar es un juego de preguntas y respuestas sobre
-                la Luna. El jugador debe leer cada pregunta y elegir una respuesta
-                entre varias opciones disponibles en la pantalla.
-            </p>
+        <p>
+            Durante el año trabajamos con Python, un lenguaje de programación
+            que nos permitió desarrollar diferentes programas y videojuegos.
+            En esta sección presentamos dos de nuestros proyectos:
+            <strong>Cuestionario Lunar</strong> y <strong>Aventura Lunar</strong>.
+        </p>
 
-            <p>
-                Después de seleccionar una opción, el programa comprueba si la
-                respuesta es correcta. Si el jugador acierta, aparece el mensaje
-                "CORRECTO" y suma un punto a su puntuación. Si se equivoca, aparece
-                el mensaje "INCORRECTO".
-            </p>
+        <p>
+            Aunque ambos comparten la temática de la Luna, cada uno propone
+            una experiencia diferente. El primero es un juego de preguntas
+            y respuestas, mientras que el segundo presenta un desafío de
+            exploración dentro de un laberinto.
+        </p>
 
-            <p>
-                La partida continúa hasta completar las diez preguntas. Al finalizar,
-                se muestra el puntaje obtenido y se ofrece la posibilidad de volver
-                a jugar desde el principio.
-            </p>
+        <hr>
 
-            <hr>
+        <!-- ================================== -->
+        <!-- 1. CUESTIONARIO LUNAR -->
+        <!-- ================================== -->
 
-            <h2>2. Herramientas utilizadas</h2>
+        <h2>1. Cuestionario Lunar</h2>
 
-            <p>
-                Para desarrollar el juego se utilizó Python junto con algunas de
-                sus herramientas y bibliotecas. Cada una cumple una función
-                específica dentro del programa.
-            </p>
+        <h3>¿En qué consiste el juego?</h3>
 
-            <h3>Python</h3>
+        <p>
+            El Cuestionario Lunar es un videojuego didáctico de preguntas
+            y respuestas sobre nuestro satélite natural. El objetivo es
+            poner a prueba los conocimientos del jugador acerca de las
+            fases lunares, sus características y algunas curiosidades.
+        </p>
 
-            <p>
-                Python es el lenguaje de programación utilizado para escribir
-                las instrucciones del juego. Permite establecer qué ocurre cuando
-                el jugador comienza una partida, selecciona una respuesta o decide
-                volver a jugar.
-            </p>
+        <p>
+            La partida contiene diez preguntas que aparecen en un orden
+            aleatorio, evitando que se presenten siempre de la misma manera.
+            Para cada pregunta se ofrecen diez opciones de respuesta,
+            que también cambian de posición aleatoriamente.
+        </p>
 
-            <h3>Tkinter</h3>
+        <p>
+            Cuando el jugador selecciona una opción, el programa comprueba
+            si es correcta. Si acierta, suma un punto y aparece un mensaje
+            de felicitación. Si se equivoca, se muestra cuál era la
+            respuesta correcta.
+        </p>
 
-            <p>
-                Tkinter es la biblioteca utilizada para crear la interfaz gráfica,
-                es decir, la parte visual con la que interactúa el jugador. Permite
-                construir la ventana, organizar las diferentes zonas de la pantalla
-                y mostrar textos, preguntas y botones.
-            </p>
+        <p>
+            Después de responder, aparecen imágenes relacionadas con
+            la pregunta. Algunas representan las fases de la Luna,
+            mientras que la última incluye un GIF animado de un hombre lobo.
+            Al completar las diez preguntas, se muestra el puntaje final
+            y se ofrece la posibilidad de volver a jugar.
+        </p>
 
-            <h3>Random</h3>
+        <h3>Herramientas y bibliotecas utilizadas</h3>
 
-            <p>
-                Random es una herramienta de Python que permite realizar selecciones
-                aleatorias. En este proyecto se utiliza para elegir las preguntas
-                de manera que no aparezcan siempre en el mismo orden.
-            </p>
+        <p>
+            Para desarrollar este videojuego se utilizaron diferentes
+            herramientas de Python:
+        </p>
 
-            <h3>Lista de preguntas disponibles</h3>
+        <h3>Python</h3>
 
-            <p>
-                La lista llamada preguntas_disponibles guarda los números de las
-                preguntas que todavía pueden aparecer durante la partida. Cuando
-                se elige una pregunta, su número se elimina de esta lista para
-                evitar que vuelva a salir en la misma partida.
-            </p>
+        <p>
+            Es el lenguaje de programación utilizado para escribir
+            las instrucciones, organizar las preguntas, comprobar
+            las respuestas y controlar el funcionamiento general
+            del videojuego.
+        </p>
 
-            <hr>
+        <h3>Tkinter</h3>
 
-            <h2>3. Las funciones principales del programa</h2>
+        <p>
+            Es la biblioteca utilizada para crear la interfaz gráfica.
+            Permite construir la ventana principal, organizar las
+            diferentes pantallas y agregar elementos como textos,
+            botones, paneles y barras de progreso.
+        </p>
 
-            <p>
-                Una función es un conjunto de instrucciones que realiza una tarea
-                determinada. En este juego, cada función se ocupa de una parte
-                del funcionamiento, lo que permite organizar el código y evitar
-                que todas las instrucciones estén mezcladas.
-            </p>
+        <h3>Random</h3>
 
-            <h3>siguiente_pregunta()</h3>
+        <p>
+            Esta biblioteca permite realizar selecciones aleatorias.
+            En el proyecto se utiliza para mezclar el orden de las
+            preguntas, seleccionar cuál aparecerá durante la partida
+            y cambiar la posición de las respuestas.
+        </p>
 
-            <p>
-                Esta función selecciona al azar una pregunta de la lista de
-                preguntas disponibles. Después, elimina su número de la lista,
-                actualiza el texto que aparece en pantalla y guarda en la variable
-                correcta cuál es la respuesta válida para esa pregunta.
-            </p>
+        <h3>Pillow</h3>
 
-            <h3>iniciar_juego()</h3>
+        <p>
+            Pillow es una biblioteca que permite abrir, modificar
+            y mostrar imágenes. Se utiliza para cargar las fotografías
+            de las fases lunares y reproducir el GIF animado del hombre lobo.
+        </p>
 
-            <p>
-                Esta función se ejecuta cuando el jugador pulsa el botón
-                "COMENZAR". Oculta la pantalla inicial, muestra las áreas destinadas
-                al cuestionario y llama a siguiente_pregunta() para presentar
-                la primera pregunta.
-            </p>
+        <h3>Pygame</h3>
 
-            <h3>comprobar(boton)</h3>
+        <p>
+            Esta biblioteca se utiliza para incorporar el sonido.
+            Permite reproducir la música de fondo durante la partida
+            y agregar el efecto de sonido del hombre lobo cuando aparece
+            su animación. La música se reproduce en bucle y el aullido
+            se escucha dos veces consecutivas.
+        </p>
 
-            <p>
-                Esta función se ejecuta cuando el jugador selecciona una respuesta.
-                Recibe el texto del botón pulsado y lo compara con el contenido
-                de la variable correcta.
-            </p>
+        <h3>Las preguntas y sus respuestas</h3>
 
-            <p>
-                Si ambos textos coinciden, el programa muestra "CORRECTO" y suma
-                un punto al puntaje. En caso contrario, muestra "INCORRECTO".
-                Luego, actualiza el contador de preguntas y permite continuar
-                según la lógica establecida en el código.
-            </p>
+        <p>
+            Las diez preguntas se encuentran organizadas en una estructura
+            llamada PREGUNTAS. Cada una contiene su enunciado, la respuesta
+            correcta y, cuando corresponde, el nombre de una imagen o GIF
+            que se mostrará después de responder.
+        </p>
 
-            <h3>reiniciar_juego()</h3>
+        <p>
+            Además, se utiliza una lista llamada RESPUESTAS que reúne
+            las opciones disponibles para el jugador. De esta manera,
+            el programa puede mostrar las distintas alternativas
+            sin tener que escribir cada botón por separado.
+        </p>
 
-            <p>
-                Esta función se utiliza cuando el jugador pulsa "INTENTAR OTRA VEZ".
-                Restablece el puntaje y el contador de preguntas, vuelve a colocar
-                las diez preguntas en la lista de disponibles, oculta la pantalla
-                de resultados, restablece los botones y prepara una nueva partida.
-            </p>
+        <h3>Funciones principales</h3>
 
-            <h3>base.mainloop()</h3>
+        <p>
+            Las funciones permiten dividir el programa en diferentes
+            tareas, facilitando su organización y funcionamiento.
+            Algunas de las más importantes son:
+        </p>
 
-            <p>
-                Esta instrucción mantiene abierta la ventana y permite que el
-                programa responda a las acciones del jugador, como pulsar
-                "COMENZAR" o seleccionar una respuesta. Sin este ciclo de
-                funcionamiento, la aplicación no podría seguir esperando
-                las interacciones del usuario.
-            </p>
+        <ul>
+            <li>
+                <strong>iniciar_juego():</strong> prepara una nueva partida,
+                reinicia el puntaje, mezcla las preguntas y comienza
+                la reproducción de la música.
+            </li>
 
-            <hr>
+            <li>
+                <strong>siguiente_pregunta():</strong> selecciona una pregunta
+                disponible, actualiza el enunciado y organiza las opciones
+                de respuesta en un orden aleatorio.
+            </li>
 
-            <h2>4. Las variables y los elementos de la pantalla</h2>
+            <li>
+                <strong>comprobar(b):</strong> recibe el botón seleccionado,
+                verifica si su respuesta es correcta, actualiza el puntaje
+                y muestra el resultado correspondiente.
+            </li>
 
-            <p>
-                Además de las funciones, el programa utiliza variables para guardar
-                información y componentes visuales para mostrarla en pantalla.
-            </p>
+            <li>
+                <strong>mostrar_imagen_respuesta(datos):</strong> muestra
+                la imagen o animación relacionada con la pregunta
+                después de que el jugador responde.
+            </li>
 
-            <h3>Variables principales</h3>
+            <li>
+                <strong>mostrar_gif_local(nombre):</strong> carga el GIF
+                del hombre lobo y prepara sus diferentes fotogramas
+                para reproducir la animación.
+            </li>
 
-            <ul>
-                <li>
-                    <strong>puntaje:</strong> guarda la cantidad de respuestas
-                    correctas que lleva el jugador.
-                </li>
-                <li>
-                    <strong>numero_pregunta:</strong> lleva la cuenta de las
-                    preguntas contestadas y permite determinar cuándo termina
-                    la partida.
-                </li>
-                <li>
-                    <strong>correcta:</strong> guarda el texto de la respuesta
-                    válida para la pregunta que se está mostrando.
-                </li>
-                <li>
-                    <strong>preguntas_disponibles:</strong> contiene los números
-                    de las preguntas que todavía no fueron seleccionadas.
-                </li>
-            </ul>
+            <li>
+                <strong>iniciar_audio():</strong> prepara los sonidos
+                y reproduce la música de fondo desde el comienzo.
+            </li>
 
-            <h3>Componentes visuales de Tkinter</h3>
+            <li>
+                <strong>terminar():</strong> finaliza la partida y muestra
+                la puntuación obtenida junto con un mensaje según
+                el desempeño del jugador.
+            </li>
+        </ul>
 
-            <ul>
-                <li>
-                    <strong>Frame:</strong> permite organizar la ventana en
-                    diferentes zonas o secciones.
-                </li>
-                <li>
-                    <strong>Label:</strong> muestra información, como títulos,
-                    preguntas, el contador y los resultados.
-                </li>
-                <li>
-                    <strong>Button:</strong> crea los botones que permiten
-                    comenzar la partida, seleccionar respuestas o volver a jugar.
-                </li>
-            </ul>
+        <h3>¿Cómo funciona una partida?</h3>
 
-            <h3>Botones, respuestas y lambda</h3>
+        <ol>
+            <li>Se abre la ventana inicial y aparece el botón COMENZAR.</li>
+            <li>Al comenzar, se reinicia el puntaje y se mezclan las preguntas.</li>
+            <li>El jugador lee la pregunta y selecciona una de las diez respuestas.</li>
+            <li>El programa comprueba la elección y muestra si fue correcta.</li>
+            <li>Se actualiza el puntaje y aparece una imagen relacionada con la pregunta.</li>
+            <li>Después de unos segundos, aparece la siguiente pregunta.</li>
+            <li>Al completar las diez preguntas, se muestra el resultado final.</li>
+            <li>El jugador puede comenzar una nueva partida o salir del juego.</li>
+        </ol>
 
-            <p>
-                La lista respuestas contiene los textos de las opciones que puede
-                elegir el jugador. El programa recorre esa lista y crea un botón
-                para cada opción, evitando tener que escribir manualmente las
-                instrucciones de cada botón por separado.
-            </p>
+        <p>
+            El tiempo de espera entre preguntas es de tres segundos.
+            Sin embargo, en la pregunta del hombre lobo se extiende
+            a ocho segundos para permitir disfrutar de la animación
+            y su efecto de sonido.
+        </p>
 
-            <p>
-                La instrucción lambda permite que cada botón envíe su propio texto
-                a la función comprobar(). De esta manera, el programa puede
-                identificar cuál fue la respuesta seleccionada y verificar
-                si es correcta.
-            </p>
+        <hr>
 
-            <hr>
+        <!-- ================================== -->
+        <!-- 2. AVENTURA LUNAR -->
+        <!-- ================================== -->
 
-            <h2>5. ¿Cómo funciona una partida paso a paso?</h2>
+        <h2>2. Aventura Lunar</h2>
 
-            <ol>
-                <li>
-                    <strong>Inicio:</strong> se crea la ventana principal y se
-                    preparan las pantallas de bienvenida, preguntas y resultados.
-                </li>
-                <li>
-                    <strong>Comenzar:</strong> el jugador pulsa "COMENZAR" y
-                    aparece la primera pregunta, seleccionada al azar.
-                </li>
-                <li>
-                    <strong>Responder:</strong> el jugador elige una de las
-                    opciones disponibles mediante los botones.
-                </li>
-                <li>
-                    <strong>Comprobar:</strong> el programa compara la opción
-                    seleccionada con la respuesta correcta y muestra el resultado.
-                </li>
-                <li>
-                    <strong>Actualizar:</strong> si la respuesta es correcta,
-                    se suma un punto. También se actualiza el contador de preguntas.
-                </li>
-                <li>
-                    <strong>Continuar:</strong> el juego presenta nuevas preguntas
-                    hasta completar las diez, sin repetir las ya seleccionadas
-                    durante esa partida.
-                </li>
-                <li>
-                    <strong>Resultado final:</strong> al terminar, se oculta el
-                    cuestionario y aparece la puntuación obtenida.
-                </li>
-                <li>
-                    <strong>Volver a jugar:</strong> el jugador puede pulsar
-                    "INTENTAR OTRA VEZ" para comenzar una nueva partida con el
-                    puntaje y el contador en cero.
-                </li>
-            </ol>
+        <h3>¿En qué consiste el juego?</h3>
 
-                <section class="referencias">
-                        <h2>Referencias visuales</h2>
+        <p>
+            Aventura Lunar es un videojuego inspirado en la dinámica
+            de Pac-Man. El jugador controla a Dell, un pequeño
+            alienígena que debe recorrer un laberinto y recoger
+            todas las Lunitas distribuidas por el escenario.
+        </p>
 
-                        <div class="galeria-referencias">
+        <p>
+            Mientras explora el laberinto, Dell debe esquivar los
+            asteroides que caen desde la parte superior de la pantalla.
+            Cada vez que uno lo alcanza, se registra un impacto.
+            Si recibe tres impactos, la misión termina y se produce
+            una derrota.
+        </p>
 
-                            <figure>
-                                <img src="Assets/cap_juego.png"
-                                     alt="Descripción de la primera imagen">
-                                <figcaption>
-                                    En la imagen se puede ver parte de la codificación empleada para el desarrollo del juego, mostrando principalmente la parte inicial + la declaración de las preguntas que se usaran (se pueden ver funciones como <strong>random</strong> que fueron nombradas anteriormente en la explicación)!
-                                </figcaption>
-                            </figure>
+        <p>
+            Para ganar, es necesario recoger todas las Lunitas
+            antes de alcanzar el límite de impactos. Cuando se
+            completa el objetivo, aparece una pantalla de victoria
+            que muestra el tiempo que tardó el jugador en finalizar
+            la misión.
+        </p>
 
-                            <figure>
-                                <img src="Assets/juego_foto.png"
-                                     alt="Descripción de la segunda imagen">
-                                <figcaption>
-                                    En la segunda imagen se puede apreciar como luce el juego ya al jugarlo (los botones al ser seleccionados y acertar, se vuelven grises y no se pueden volver a hacer click en ellos)
-                                </figcaption>
-                            </figure>
+        <h3>Herramientas y bibliotecas utilizadas</h3>
 
-                        </div>
-                    </section>
+        <h3>Python</h3>
 
-            <hr>
+        <p>
+            Se utiliza para desarrollar toda la lógica del videojuego:
+            el movimiento del personaje, la distribución de las Lunitas,
+            la aparición de asteroides, las colisiones y las condiciones
+            necesarias para ganar o perder.
+        </p>
 
-            <h2>6. Conclusión</h2>
+        <h3>Tkinter</h3>
 
-            <p>
-                El desarrollo del Cuestionario Lunar permite comprender cómo
-                diferentes herramientas de Python pueden trabajar juntas para
-                crear un juego interactivo. Tkinter se encarga de la interfaz
-                visual, random ayuda a seleccionar las preguntas y las funciones
-                organizan las acciones que realiza el programa.
-            </p>
+        <p>
+            Al igual que en el Cuestionario Lunar, se utiliza para
+            construir la interfaz gráfica. En este caso, su componente
+            Canvas permite dibujar el laberinto, mostrar los personajes,
+            representar los objetos y actualizar constantemente
+            los elementos del escenario.
+        </p>
 
-            <p>
-                Aunque cada parte cumple una tarea diferente, todas se
-                complementan para que el jugador pueda responder preguntas,
-                conocer sus resultados y comenzar una nueva partida.
-                De esta manera, el proyecto combina programación y aprendizaje
-                mediante una actividad didáctica sobre la Luna.
-            </p>
-        </main>
+        <h3>Random</h3>
+
+        <p>
+            Permite introducir elementos aleatorios en el juego.
+            Se utiliza para distribuir diferentes tipos de Lunitas
+            por el laberinto y determinar la posición y velocidad
+            con la que aparecen los asteroides.
+        </p>
+
+        <h3>Pillow</h3>
+
+        <p>
+            Esta biblioteca permite cargar y adaptar las imágenes
+            utilizadas en el videojuego. Se emplea para mostrar
+            los dibujos de Dell, sus diferentes posiciones,
+            las Lunitas y los asteroides.
+        </p>
+
+        <h3>Time y Math</h3>
+
+        <p>
+            La biblioteca Time permite medir el tiempo de la partida,
+            controlar los intervalos de movimiento y determinar
+            cuándo deben aparecer nuevos asteroides.
+        </p>
+
+        <p>
+            Por otro lado, Math se utiliza para calcular la distancia
+            entre Dell y los asteroides, permitiendo detectar
+            cuándo se produce una colisión.
+        </p>
+
+        <h3>La organización del laberinto</h3>
+
+        <p>
+            El escenario está construido mediante una lista llamada
+            LABERINTO. Esta contiene diferentes filas de caracteres
+            que representan la distribución del mapa.
+        </p>
+
+        <p>
+            El símbolo <strong>#</strong> representa una pared,
+            mientras que los espacios vacíos representan los caminos
+            por los que puede desplazarse el personaje.
+        </p>
+
+        <p>
+            El laberinto está organizado en una cuadrícula de
+            13 filas y 18 columnas. Cada casilla tiene un tamaño
+            de 40 píxeles, lo que permite calcular la posición
+            de los elementos dentro del escenario.
+        </p>
+
+        <h3>La clase AventuraLunar</h3>
+
+        <p>
+            A diferencia del Cuestionario Lunar, este videojuego
+            organiza gran parte de su funcionamiento mediante
+            una clase llamada AventuraLunar.
+        </p>
+
+        <p>
+            Una clase permite agrupar diferentes variables y funciones
+            relacionadas con un mismo objeto o programa. En este caso,
+            se encarga de controlar el personaje, las pantallas,
+            los movimientos y los elementos del juego.
+        </p>
+
+        <h3>Funciones y métodos principales</h3>
+
+        <ul>
+            <li>
+                <strong>__init__():</strong> prepara la ventana,
+                carga las imágenes, configura las variables
+                y establece los controles del teclado.
+            </li>
+
+            <li>
+                <strong>cargar_imagen():</strong> busca las imágenes
+                dentro de la carpeta Assets, las adapta al tamaño
+                necesario y las prepara para mostrarlas.
+            </li>
+
+            <li>
+                <strong>mostrar_inicio():</strong> presenta la pantalla
+                inicial del videojuego y activa una animación
+                que alterna las imágenes de Dell.
+            </li>
+
+            <li>
+                <strong>preparar_partida():</strong> reinicia las variables,
+                coloca al personaje en su posición inicial y distribuye
+                las Lunitas por los caminos del laberinto.
+            </li>
+
+            <li>
+                <strong>dibujar_juego():</strong> actualiza visualmente
+                el escenario, mostrando el laberinto, las Lunitas,
+                los asteroides, el personaje y los contadores.
+            </li>
+
+            <li>
+                <strong>tecla_presionada():</strong> detecta las teclas
+                utilizadas por el jugador para moverse, pausar,
+                comenzar o salir.
+            </li>
+
+            <li>
+                <strong>mover_jugador():</strong> controla el desplazamiento
+                de Dell, comprueba que no atraviese las paredes
+                y recoge las Lunitas cuando pasa sobre ellas.
+            </li>
+
+            <li>
+                <strong>actualizar_asteroides():</strong> genera nuevos
+                asteroides, controla su caída y comprueba si alcanzan
+                al personaje.
+            </li>
+
+            <li>
+                <strong>mostrar_fin():</strong> presenta la pantalla
+                de victoria o derrota, dependiendo del resultado
+                de la partida.
+            </li>
+
+            <li>
+                <strong>bucle():</strong> mantiene el funcionamiento
+                continuo del videojuego, actualizando los movimientos
+                y el escenario mientras la partida está activa.
+            </li>
+        </ul>
+
+        <h3>Animaciones y movimientos</h3>
+
+        <p>
+            Uno de los aspectos que trabajamos en este videojuego
+            fue la incorporación de diferentes imágenes para darle
+            más movimiento y personalidad al personaje.
+        </p>
+
+        <p>
+            Dell cuenta con imágenes orientadas hacia cuatro direcciones:
+            arriba, abajo, izquierda y derecha. Además, cada dirección
+            tiene dos versiones, una con la boca abierta y otra
+            con la boca cerrada.
+        </p>
+
+        <p>
+            El programa alterna estas imágenes mientras el personaje
+            se desplaza, generando una animación que simula el movimiento
+            de su boca. Cuando se detiene, vuelve a mostrar la imagen
+            correspondiente con la boca cerrada.
+        </p>
+
+        <p>
+            También se incorporó un efecto de parpadeo temporal
+            cuando Dell recibe un impacto, acompañado de un período
+            de protección durante el cual no puede recibir otro daño.
+        </p>
+
+        <h3>Controles del videojuego</h3>
+
+        <ul>
+            <li>
+                <strong>Flechas del teclado:</strong> permiten mover
+                a Dell por el laberinto.
+            </li>
+
+            <li>
+                <strong>W, A, S y D:</strong> permiten realizar
+                los mismos movimientos utilizando estas teclas.
+            </li>
+
+            <li>
+                <strong>P:</strong> pausa el videojuego y permite
+                reanudarlo.
+            </li>
+
+            <li>
+                <strong>Enter:</strong> comienza una partida,
+                permite volver a jugar después de finalizar
+                o regresar al menú desde la pausa.
+            </li>
+
+            <li>
+                <strong>Escape:</strong> cierra el videojuego.
+            </li>
+        </ul>
+
+        <h3>¿Cómo funciona una partida?</h3>
+
+        <ol>
+            <li>
+                Se abre el menú principal y aparecen las imágenes
+                de presentación de Dell.
+            </li>
+
+            <li>
+                Al presionar Enter, comienza una breve transición
+                antes de iniciar la partida.
+            </li>
+
+            <li>
+                Se prepara el laberinto y se distribuyen las Lunitas
+                por los diferentes caminos.
+            </li>
+
+            <li>
+                El jugador utiliza el teclado para desplazarse
+                y recoger todos los objetos.
+            </li>
+
+            <li>
+                Mientras tanto, aparecen asteroides que caen
+                desde la parte superior del escenario.
+            </li>
+
+            <li>
+                Si un asteroide alcanza a Dell, aumenta el contador
+                de impactos. Después de tres impactos, se produce
+                una derrota.
+            </li>
+
+            <li>
+                Si consigue recoger todas las Lunitas, se completa
+                la misión y aparece el tiempo final.
+            </li>
+
+            <li>
+                Finalmente, el jugador puede volver a intentarlo
+                o salir del videojuego.
+            </li>
+        </ol>
+
+        <hr>
+
+        <!-- ================================== -->
+        <!-- 3. REFERENCIAS VISUALES -->
+        <!-- ================================== -->
+
+        <h2>3. Referencias visuales</h2>
+
+        <p>
+            A continuación, se presentan algunas imágenes de los
+            videojuegos y de su desarrollo mediante código.
+        </p>
+
+        <section class="referencias">
+
+            <div class="galeria-referencias">
+
+                <figure>
+                    <img src="Assets/cap_cuestionario.png"
+                         alt="Código del Cuestionario Lunar">
+
+                    <figcaption>
+                        En esta imagen se puede observar parte de la
+                        programación del Cuestionario Lunar, incluyendo
+                        la organización de las preguntas y algunas
+                        de las herramientas utilizadas.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="Assets/cap_alien.png"
+                         alt="Código de la Aventura Lunar">
+
+                    <figcaption>
+                       En esta imagen se puede observar parte de la
+                        programación de la Aventura Lunar, incluyendo
+                        la organización de las imagenes que se usan de Dell para simular movimiento y los audios empleados!
+                    </figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ================================== -->
+        <!-- 4. CONCLUSIÓN -->
+        <!-- ================================== -->
+
+        <h2>4. Conclusión</h2>
+
+        <p>
+            El desarrollo de estos dos videojuegos nos permitió
+            aplicar diferentes conocimientos de programación
+            utilizando Python y sus bibliotecas.
+        </p>
+
+        <p>
+            A través del Cuestionario Lunar trabajamos principalmente
+            con preguntas, respuestas, listas, selecciones aleatorias,
+            funciones e interfaces gráficas. También incorporamos
+            imágenes, animaciones y efectos de sonido para enriquecer
+            la experiencia del jugador.
+        </p>
+
+        <p>
+            Por otro lado, Aventura Lunar nos permitió trabajar
+            con movimientos, coordenadas, colisiones, animaciones,
+            medición del tiempo y actualización constante de los
+            elementos de un videojuego.
+        </p>
+
+        <p>
+            Aunque ambos proyectos tienen objetivos y mecánicas
+            diferentes, comparten una misma temática y nos permitieron
+            experimentar con distintas posibilidades de la programación.
+            Cada uno representó una oportunidad para aprender,
+            resolver problemas y desarrollar nuestras propias ideas.
+        </p>
+
+    </main>
+
     <hr>
 
     <footer>
-        <p>&copy; 2026 - Página web con el objetivo de recopilar el desarrollo del proyecto "Luna y sus fases"</p>
+        <p>
+            &copy; 2026 - Página web con el objetivo de recopilar
+            el desarrollo del proyecto "Luna y sus fases".
+        </p>
+    </footer>
+
 </body>
 </html>

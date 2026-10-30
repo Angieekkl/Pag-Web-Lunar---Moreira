@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cuestionario Lunar</title><link rel="stylesheet" href="styles.css"></head>
+<body><main class="site">
+  <header class="top"><a class="brand" href="index.html">PROYECTO LUNAR</a><a class="back" href="index.html">← Volver al menú</a></header>
+  <section class="quiz">
+    <div id="start-screen">
+      <div class="moon-mark"></div><div class="quiz-title">CUESTIONARIO <span>LUNAR</span></div>
+      <div class="eyebrow">MISIÓN DE ASTRONOMÍA</div>
+      <p class="lead">¿Cuánto sabés sobre la Luna?<br>¡Descubrilo pregunta a pregunta!</p>
+      <div class="quiz-actions"><button class="action primary" id="start-btn">COMENZAR</button></div>
+      <p class="footer">10 preguntas · Puntaje final · ¡Volvé a jugar!</p>
+    </div>
+    <div id="play-screen" class="hidden">
+      <div class="top"><strong>✦ MISIÓN LUNAR</strong><strong id="counter" style="color:#ffd166">PREGUNTA 1 DE 10</strong></div>
+      <div class="quiz-progress" id="progress"></div>
+      <div class="quiz-image" id="quiz-image"><div class="moon-mark hint-moon"></div></div>
+      <div class="quiz-question" id="question"></div>
+      <div class="eyebrow">SELECCIONÁ UNA RESPUESTA</div>
+      <div id="answers"></div>
+      <div class="quiz-feedback" id="feedback">Elegí la respuesta que te parezca correcta.</div>
+    </div>
+    <div id="end-screen" class="hidden">
+      <div class="moon-mark"></div><div class="eyebrow">MISIÓN COMPLETADA</div>
+      <h2 style="text-align:center;color:#ffd166">¡MISIÓN COMPLETADA!</h2><p style="text-align:center">Tu puntaje</p><div class="score" id="score">0 DE 10</div>
+      <p id="score-message" class="lead"></p>
+      <div class="quiz-actions"><button class="action primary" id="again-btn">INTENTAR OTRA VEZ</button></div>
+    </div>
+  </section>
+</main><script src="cuestionario.js"></script></body></html>

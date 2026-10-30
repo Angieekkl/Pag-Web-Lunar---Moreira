@@ -1,0 +1,20 @@
+PROYECTO LUNAR - VERSION PARA NAVEGADOR
+
+ARCHIVOS:
+- index.html: menu principal de los dos juegos.
+- aventura-lunar.html: Aventura Lunar.
+- cuestionario-lunar.html: Cuestionario Lunar.
+- styles.css: estilos compartidos.
+- aventura.js y cuestionario.js: logica de cada juego.
+- Assets/: imagenes, GIF y sonidos originales.
+
+COMO PROBAR:
+1. Descomprimí toda la carpeta.
+2. Mantené la carpeta Assets junto a los archivos HTML y JS.
+3. Abrí index.html con un navegador moderno.
+4. Para publicarlo en GitHub Pages, subí la carpeta completa respetando nombres y mayúsculas.
+
+IMPORTANTE:
+- Los juegos fueron adaptados a HTML, CSS y JavaScript. Ya no necesitan Python, Tkinter ni archivos EXE.
+- El audio puede comenzar luego de pulsar COMENZAR, por las restricciones de reproducción automática de los navegadores.
+- No muevas ni renombres los archivos de Assets: las rutas deben coincidir exactamente.
